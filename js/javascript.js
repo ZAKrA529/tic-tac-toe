@@ -39,5 +39,7 @@ function showWinner(jugador) {
 }
 
 btn.addEventListener('click', (e) => {
+    e.reload();
     
+
 })
