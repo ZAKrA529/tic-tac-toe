@@ -8,8 +8,25 @@ let cells = document.getElementsByClassName("celda");
 let button = document.getElementById('btn');
 
 // Función que recupera el ganador almacenado en el LocalStorage (aunque no se usa en el código)
-const guardarGanadorX = () => localStorage.setItem("Ganador") || "x";
-const guardarGanadorO = () => localStorage.setItem("Ganador") || "o";
+const guardarGanador = (jugador) => localStorage.setItem("Ganador", jugador) ;
+
+
+function actualizarPuntaje (guardarGanador){
+    let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
+    let puntajeO = parseInt(localStorage.getItem("puntajeO")) || 0;
+
+    if (guardarGanador === "X")  {
+        puntajeX++;
+        localStorage.setItem("puntajeX", puntajeX)
+    } else if(guardarGanador === "O") {
+        puntajeO++;
+        localStorage.setItem("puntajeO", puntajeO); }
+
+        
+    }       
+    actualizarPuntaje("X"); // Suma 1 punto a X
+    actualizarPuntaje("O"); // Suma 1 punto a O
+    actualizarPuntaje("X"); // Suma otro punto a X
 
 // Recorre todas las celdas y les agrega un evento "click" para ejecutar la función userMove
 for (let i = 0; i < cells.length; i++) {
@@ -26,19 +43,19 @@ function userMove (e) {
         playerOne = !playerOne; // Cambia de jugador
 
         // Llama a la función checkLine para verificar si hay una línea ganadora
-        checkLine(0,1,2); // Revisa la primera fila
-        checkLine(3,4,5); // Revisa la segunda fila
-        checkLine(6,7,8); // Revisa la tercera fila
-        checkLine(0,3,6); // Revisa la primera columna
-        checkLine(1,4,7); // Revisa la segunda columna
-        checkLine(2,5,8); // Revisa la tercera columna
-        checkLine(2,4,6); // Revisa la diagonal secundaria
-        checkLine(0,4,8); // Revisa la diagonal principal
+        checkListCell(0,1,2); // Revisa la primera fila
+        checkListCell(3,4,5); // Revisa la segunda fila
+        checkListCell(6,7,8); // Revisa la tercera fila
+        checkListCell(0,3,6); // Revisa la primera columna
+        checkListCell(1,4,7); // Revisa la segunda columna
+        checkListCell(2,5,8); // Revisa la tercera columna
+        checkListCell(2,4,6); // Revisa la diagonal secundaria
+        checkListCell(0,4,8); // Revisa la diagonal principal
     }
 }
 
 // Función que revisa si hay una combinación ganadora
-function checkLine (c1, c2, c3){
+function checkListCell (c1, c2, c3){
     if (
         cells[c1].innerHTML.length && // Verifica que la celda no esté vacía
         cells[c1].innerHTML == cells[c2].innerHTML && // Compara la primera celda con la segunda
@@ -51,7 +68,7 @@ function checkLine (c1, c2, c3){
 // Función que muestra el ganador y desactiva el juego
 function showWinner(jugador) {
     document.querySelector('#resultado').innerHTML = jugador + " Ganador"; // Muestra el ganador en pantalla
-
+    
     // Remueve los eventos de las celdas para que no se pueda seguir jugando
     for (let i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', userMove);
@@ -59,13 +76,13 @@ function showWinner(jugador) {
 
     // Guarda el ganador en el almacenamiento local
     localStorage.setItem("Ganador", jugador);
-    guardarGanadorO
+    
 }
 
 // Evento para el botón de reinicio que recarga la página cuando se hace clic
 btn.addEventListener('click', (e) => {
     location.reload(); // Recarga la página para reiniciar el juego
-    
+
 });
 
 
