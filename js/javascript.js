@@ -7,40 +7,26 @@ let cells = document.getElementsByClassName("celda");
 // Obtiene el botón con el id 'btn' (para reiniciar el juego)
 let button = document.getElementById('btn');
 
-// Función que recupera el ganador almacenado en el LocalStorage (aunque no se usa en el código)
-const guardarGanador = (jugador) => localStorage.setItem("Ganador", jugador) ;
-
-
-function actualizarPuntaje (guardarGanador){
-    let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
-    let puntajeO = parseInt(localStorage.getItem("puntajeO")) || 0;
-
-    if (guardarGanador === "X")  {
-        puntajeX++;
-        localStorage.setItem("puntajeX", puntajeX)
-    } else if(guardarGanador === "O") {
-        puntajeO++;
-        localStorage.setItem("puntajeO", puntajeO); }
-
-        
-    }       
-    actualizarPuntaje("X"); // Suma 1 punto a X
-    actualizarPuntaje("O"); // Suma 1 punto a O
-    actualizarPuntaje("X"); // Suma otro punto a X
 
 // Recorre todas las celdas y les agrega un evento "click" para ejecutar la función userMove
 for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener('click' , userMove);
+    cells[i].addEventListener('click' , function () {
+        cells[i].textContent = "X";
+        userMove()
+    });
 }
 
 // Función que maneja el movimiento de los jugadores
 function userMove (e) {
-    let cellsValue = e.target.innerHTML; // Obtiene el contenido de la celda clicada
+    let emptyCells = Array.from(cells).filter(cell => !cell.innerHTML.length); //Filtra las celdas
 
-    // Si la celda está vacía, coloca una 'x' o 'o' según el turno del jugador
-    if (!cellsValue.length){
-        e.target.innerHTML = playerOne ? 'x' : 'o';
-        playerOne = !playerOne; // Cambia de jugador
+    
+    if (emptyCells.length > 0){
+        let randomIndex = Math.floor(Math.random() * emptyCells.length); //la maquina seleccionando una casilla aleatoria
+        let selectCell = emptyCells[randomIndex];
+
+        selectCell.innerHTML= playerOne = 'Y'; //alterna entre jugadores
+        playerOne= !playerOne;
 
         // Llama a la función checkLine para verificar si hay una línea ganadora
         checkListCell(0,1,2); // Revisa la primera fila
@@ -67,7 +53,7 @@ function checkListCell (c1, c2, c3){
 
 // Función que muestra el ganador y desactiva el juego
 function showWinner(jugador) {
-    document.querySelector('#resultado').innerHTML = jugador + " Ganador"; // Muestra el ganador en pantalla
+    document.querySelector('#resultado').innerHTML =   "Ganador" + "_" + jugador; // Muestra el ganador en pantalla
     
     // Remueve los eventos de las celdas para que no se pueda seguir jugando
     for (let i = 0; i < cells.length; i++) {
@@ -84,8 +70,6 @@ function actualizarPuntaje (guardarGanador){
     let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
     let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
 
-    
-
     if (guardarGanador === "X")  {
         puntajeX++;
         localStorage.setItem("puntajeX", puntajeX)
@@ -94,6 +78,12 @@ function actualizarPuntaje (guardarGanador){
         localStorage.setItem("puntajeY", puntajeY); }
         
 }  
+
+//Oculto de momento
+//actualizarPuntaje("X");
+//actualizarPuntaje("Y");
+
+
 
 // Evento para el botón de reinicio que recarga la página cuando se hace clic
 btn.addEventListener('click', (e) => {
