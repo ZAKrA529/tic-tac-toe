@@ -77,7 +77,23 @@ function showWinner(jugador) {
     // Guarda el ganador en el almacenamiento local
     localStorage.setItem("Ganador", jugador);
     
+    actualizarPuntaje(jugador);
 }
+
+function actualizarPuntaje (guardarGanador){
+    let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
+    let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
+
+    
+
+    if (guardarGanador === "X")  {
+        puntajeX++;
+        localStorage.setItem("puntajeX", puntajeX)
+    } else if(guardarGanador === "Y") {
+        puntajeY++;
+        localStorage.setItem("puntajeY", puntajeY); }
+        
+}  
 
 // Evento para el botón de reinicio que recarga la página cuando se hace clic
 btn.addEventListener('click', (e) => {
