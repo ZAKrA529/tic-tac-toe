@@ -1,112 +1,112 @@
 /* Estilos generales del cuerpo */
 body {
-  width: 100vw; /* Ocupar el ancho completo de la ventana */
-  height: 100vh; /* Ocupar el alto completo de la ventana */
-  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Fondo con degradado azul */
-  color: white; /* Texto en color blanco */
-  margin: 0; /* Elimina los márgenes predeterminados */
-  display: flex; /* Usa flexbox para centrar los elementos */
-  flex-direction: column; /* Acomoda los elementos en columna */
-  align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente */
-  font-family: Arial, sans-serif; /* Usa una fuente más clara y moderna */
-  text-align: center; /* Asegura que el texto del resultado esté centrado */
-}
-
-/* Estilo del título del juego */
-h1 {
-  font-size: 2rem; /* Tamaño grande del texto */
-  margin-bottom: 20px; /* Espacio debajo del título */
-  text-transform: uppercase; /* Convierte el texto a mayúsculas */
-  letter-spacing: 2px; /* Espaciado entre letras para mejor legibilidad */
-}
-
-/* Contenedor del tablero de juego */
-#game {
-  display: grid; /* Usa Grid para organizar las celdas */
-  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
-  gap: 5px; /* Espacio entre celdas */
-  width: 300px; /* Ancho fijo del tablero */
-  background-color: #0d1b2a; /* Fondo oscuro para el tablero */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 10px; /* Bordes redondeados para suavizar el diseño */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el tablero */
-}
-
-/* Estilos de cada celda del juego */
-.celda {
-  width: 90px; /* Ancho de cada celda */
-  height: 90px; /* Alto de cada celda */
-  font-size: 3rem; /* Tamaño grande del texto (X u O) */
-  display: flex; /* Flexbox para centrar el contenido */
-  align-items: center; /* Centra verticalmente */
-  justify-content: center; /* Centra horizontalmente */
-  background: #1b263b; /* Fondo oscuro de las celdas */
-  color: white; /* Color del texto en blanco */
-  border-radius: 8px; /* Bordes redondeados */
-  cursor: pointer; /* Muestra el cursor como puntero al pasar sobre la celda */
-  transition: background 0.3s, transform 0.1s; /* Suaviza los cambios de color y tamaño */
-}
-
-/* Efecto al pasar el mouse sobre una celda */
-.celda:hover {
-  background: #415a77; /* Cambia el color de fondo al pasar el mouse */
-}
-
-/* Efecto al hacer clic en una celda */
-.celda:active {
-  transform: scale(0.95); /* Hace que la celda se encoja ligeramente */
-}
-
-/* Estilos del cuadro donde se muestra el ganador */
-#resultado {
-  margin-top: 15px; /* Espaciado superior para separarlo del tablero */
-  font-size: 1.2rem; /* Tamaño del texto del resultado */
-  font-weight: bold; /* Hace que el texto sea más grueso */
-  text-align: center; /* Centra el texto */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
-}
-
-#game #score{
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Crea columnas automáticas */
-    gap: 10px; /* Espacio entre elementos */
-}
-
-
-
-
-
-
-/*Este apartado está centrado en el boton de "New Game" exportado desde UIVERSE.IO*/
-/* Contenedor para centrar el botón */
-#boton-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px; /* Espacio entre el botón y el tablero */
-}
-
-/* Estilos del botón */
-button {
-  padding: 10px 20px;
-  border-radius: 7px;
-  border: 1px solid rgb(61, 106, 255);
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2px;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-}
-
-button:hover {
-  background: rgb(61, 106, 255);
-  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
-}
-
-button:active {
-  transform: scale(0.95);
-}
+    width: 100vw; /* Ocupar el ancho completo de la ventana */
+    height: 100vh; /* Ocupar el alto completo de la ventana */
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Fondo con degradado azul */
+    color: white; /* Texto en color blanco */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    display: flex; /* Usa flexbox para centrar los elementos */
+    flex-direction: column; /* Acomoda los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    font-family: Arial, sans-serif; /* Usa una fuente más clara y moderna */
+    text-align: center; /* Asegura que el texto del resultado esté centrado */
+  }
+  
+  /* Estilo del título del juego */
+  h1 {
+    font-size: 2rem; /* Tamaño grande del texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras para mejor legibilidad */
+  }
+  
+  /* Contenedor del tablero de juego */
+  #game {
+    display: grid; /* Usa Grid para organizar las celdas */
+    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
+    gap: 5px; /* Espacio entre celdas */
+    width: 300px; /* Ancho fijo del tablero */
+    background-color: #0d1b2a; /* Fondo oscuro para el tablero */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados para suavizar el diseño */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el tablero */
+  }
+  
+  /* Estilos de cada celda del juego */
+  .celda {
+    width: 90px; /* Ancho de cada celda */
+    height: 90px; /* Alto de cada celda */
+    font-size: 3rem; /* Tamaño grande del texto (X u O) */
+    display: flex; /* Flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    background: #1b263b; /* Fondo oscuro de las celdas */
+    color: white; /* Color del texto en blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Muestra el cursor como puntero al pasar sobre la celda */
+    transition: background 0.3s, transform 0.1s; /* Suaviza los cambios de color y tamaño */
+  }
+  
+  /* Efecto al pasar el mouse sobre una celda */
+  .celda:hover {
+    background: #415a77; /* Cambia el color de fondo al pasar el mouse */
+  }
+  
+  /* Efecto al hacer clic en una celda */
+  .celda:active {
+    transform: scale(0.95); /* Hace que la celda se encoja ligeramente */
+  }
+  
+  /* Estilos del cuadro donde se muestra el ganador */
+  #resultado {
+    margin-top: 15px; /* Espaciado superior para separarlo del tablero */
+    font-size: 1.2rem; /* Tamaño del texto del resultado */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+  }
+  
+  #game #score{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Crea columnas automáticas */
+      gap: 10px; /* Espacio entre elementos */
+  }
+  
+  
+  
+  
+  
+  
+  /*Este apartado está centrado en el boton de "New Game" exportado desde UIVERSE.IO*/
+  /* Contenedor para centrar el botón */
+  #boton-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Espacio entre el botón y el tablero */
+  }
+  
+  /* Estilos del botón */
+  button {
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+  }
+  
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
