@@ -27,7 +27,7 @@ for (let pattern of ganadoras) {
             return tablero[a[0]][a[1]];
             }
         }
-    return tablero.flat().includes("") ? null : tie;
+    return tablero.flat().includes("") ? null : tie;// Retorna empate si no hay espacios vacíos
 }
 
 function minimax(tablero, depth,isMinimaxing) {
@@ -36,15 +36,28 @@ function minimax(tablero, depth,isMinimaxing) {
     if (resultado === player) return depth - 10;
     if (resultado === "tie") return 0;
 
-    if (minimax) {
+    if (isMinimaxing) {
         let bestScore = -Infinity;
-        for (let i= 0; i < a.length; index++) {
-            const element = array[index];
+        for (let i= 0; i < 3; i++) {
+            for (let i = 0 ; i < 3; j++){
+                if (tablero [i][j] === "") {
+                    tablero [i][j] = IA;
+                    let score = minimax(tablero, depth +1, false);
+                    board [i][j] = "";
+                    bestScore = Math.max(score, bestScore)
+                }
+            }
             
         }
-        
-    }
-    {
-        
+        return bestScore;
+    }else {
+        let bestScore = Infinity;
+        for(let i = 0; i < 3; i++){
+            if (tablero[i][j] === "") {
+                tablero [i][j] = player;
+                let score = minimax(tablero, depth + 1, true);
+                tablero [i][j] = "";
+            }
+        }
     }
 }

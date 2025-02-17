@@ -1,7 +1,8 @@
 let playerOne = true;  
 let cells = document.getElementsByClassName("celda");
 let button = document.getElementById('btn');
-let score = document.getElementById('score')
+let score = document.getElementById('score');
+let bandera = false;
 
 // Asigna eventos a cada celda
 for (let i = 0; i < cells.length; i++) {
@@ -14,31 +15,37 @@ for (let i = 0; i < cells.length; i++) {
     });
 }
 
-
-
 //Funcion de chekear el empate 
 function cheakTie() {
-    let emptyCells = Array.from(cells).filter(cells => !cells.innerHTML.length)
-
-    if (emptyCells.length === 0)
-        document.querySelector("#score").innerHTML = "Empate";
+    //let emptyCells = Array.from(cells).filter(cells => !cells.innerHTML.length)
+        document.querySelector("#resultado").innerHTML = "Empate";
         localStorage.setItem("Empates", (parseInt(localStorage.getItem("Empates")) || 0 ) +1);
-
-        for (let i = 0; i < cells.length; i++) {
-            cells[i].style.pointerEvents = "none";
-        }
     }
 
 function userMove() {
     let emptyCells = Array.from(cells).filter(cell => !cell.innerHTML.length);
 
-    if (emptyCells.length > 0) {
+    if (emptyCells.length >= 0) {
+        console.log(emptyCells.length);
+        if (emptyCells.length === 0 && bandera === false) {
+            cheakTie()
+            checkListCell(0,1,2);
+            checkListCell(3,4,5);
+            checkListCell(6,7,8);
+            checkListCell(0,3,6);
+            checkListCell(1,4,7);
+            checkListCell(2,5,8);
+            checkListCell(2,4,6);
+            checkListCell(0,4,8);
+        }
         let randomIndex = Math.floor(Math.random() * emptyCells.length);
         let selectCell = emptyCells[randomIndex];
 
+        
         selectCell.innerHTML = playerOne ? "X" : "Y";
+        
         playerOne = !playerOne;
-
+        
         checkListCell(0,1,2);
         checkListCell(3,4,5);
         checkListCell(6,7,8);
@@ -49,7 +56,7 @@ function userMove() {
         checkListCell(0,4,8);
 
 
-        cheakTie(); //
+        
         }
 
     }
@@ -61,7 +68,8 @@ function checkListCell(c1, c2, c3) {
         cells[c2].innerHTML == cells[c3].innerHTML) {
         
         showWinner(cells[c1].innerHTML);
-    }
+        bandera = true;
+    } 
 }
 
 function showWinner(jugador) {
@@ -82,7 +90,7 @@ function actualizarPuntaje(guardarGanador) {
     let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
     let tie = parseInt(localStorage.getItem("Empate")) && 0;
 
-    console.log(tie, cheakTie, emptyCells);
+    console.log(tie, cheakTie);
     
     
 
