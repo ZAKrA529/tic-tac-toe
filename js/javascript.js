@@ -1,6 +1,7 @@
 let playerOne = true;  
 let cells = document.getElementsByClassName("celda");
 let button = document.getElementById('btn');
+let score = document.getElementById('score')
 
 // Asigna eventos a cada celda
 for (let i = 0; i < cells.length; i++) {
@@ -54,9 +55,11 @@ function showWinner(jugador) {
     actualizarPuntaje(jugador);
 }
 
+
 function actualizarPuntaje(guardarGanador) {
     let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
     let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
+    
 
     if (guardarGanador === "X") {
         localStorage.setItem("puntajeX", ++puntajeX);

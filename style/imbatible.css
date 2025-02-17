@@ -102,27 +102,3 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-
-
-@media (max-width: 600px) {
-  #game {
-      width: 90vw; /* El tablero ocupará el 90% del ancho de la pantalla */
-      gap: 3px; /* Reduce el espacio entre celdas */
-  }
-
-  .celda {
-      width: 28vw; /* Cada celda será un 28% del ancho de la pantalla */
-      height: 28vw; /* Mantiene la proporción cuadrada */
-      font-size: 2rem; /* Reduce el tamaño del texto en las celdas */
-  }
-
-  h1 {
-      font-size: 1.5rem; /* Reduce el tamaño del título */
-  }
-
-  button {
-      font-size: 12px;
-      padding: 8px 16px;
-  }
-}
-

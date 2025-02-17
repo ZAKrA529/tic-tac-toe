@@ -15,19 +15,22 @@
             <input placeholder="Username" class="input" name="text" type="text">
         </div>
         
+        <div class="preview" id="preview"></div>
+        <div class="grid" id="characterGrid"></div>
+        <button class="button" id="confirm">Confirmar</button>
 
         <h2 class="h2">Escoje tu modo de juego</h2>
         <div class="botones">
-        <button class="button" type="button" onclick="location.href='index.html'">vs IA 🤖</button>
-        <button class="button" type="button">1 vs 1</button>
-        <button class="button" type="button">Imbatible</button>
+            <div class="btns">
+                <button class="button" type="button" onclick="location.href='index.html'">vs IA 🤖</button>
+                <button class="button" type="button" onclick="location.href=''">1 vs 1</button>
+                <button class="button" type="button" onclick="location.href='imbatible.html'">Imbatible</button>
+            </div>
+        
         </div>
 
-        <div class="personaje">
-            
-        </div>
     </div>
     
-    
+    <script src="js/pj.js"></script>
 </body>
 </html>
