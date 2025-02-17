@@ -83,17 +83,10 @@ function showWinner(jugador) {
     actualizarPuntaje(jugador);
     }
 
-
-
 function actualizarPuntaje(guardarGanador) {
     let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
     let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
     let tie = parseInt(localStorage.getItem("Empate")) && 0;
-
-    console.log(tie, cheakTie);
-    
-    
-
     if (guardarGanador === "X") {
         localStorage.setItem("puntajeX", ++puntajeX);
     } else if (guardarGanador === "Y") {
@@ -101,7 +94,6 @@ function actualizarPuntaje(guardarGanador) {
     } else if (guardarGanador === "tie") {
         localStorage.setItem("Empate", ++tie); //
     }
-
 }
 
 button.addEventListener("click", () => {
