@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Tic-Tac-Toe</title>
+    <title>Interfaz</title>
+    <link rel="stylesheet" href="style/interfaz.css">
 </head>
 <body>
-    <h1 class="titulo">Mi Tic-Tac-Toe</h1>
+    <div class="container">
+        <h1>Bienvenido a mi Tic Tac Toe</h1>
+        <br>
+        <div class="nameinp">
+            <h1>Ingresa tu nombre:</h1>
+            <input placeholder="Username" class="input" name="text" type="text">
+        </div>
+        
+        <div class="preview" id="preview"></div>
+        <div class="grid" id="characterGrid"></div>
+        <button class="button" id="confirm">Confirmar</button>
 
-    <div id="game">
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <div class="celda"></div>
-        <button id="btn">
-            New game
-        </button>
+        <h2 class="h2">Escoje tu modo de juego</h2>
+        <div class="botones">
+            <div class="btns">
+                <button class="button" type="button" onclick="location.href='index.html'">vs IA 🤖</button>
+                <button class="button" type="button" onclick="location.href=''">1 vs 1</button>
+                <button class="button" type="button" onclick="location.href='imbatible.html'">Imbatible</button>
+            </div>
+        
+        </div>
 
     </div>
-
-    <div id="resultado"></div>
-
-    <div class="score" id="score">
-        <h1>hola</h1>
-    </div>
-    <script src="js/javascript.js"></script>
+    
+    <script src="js/pj.js"></script>
 </body>
 </html>
