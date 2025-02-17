@@ -14,6 +14,21 @@ for (let i = 0; i < cells.length; i++) {
     });
 }
 
+
+
+//Funcion de chekear el empate 
+function cheakTie() {
+    let emptyCells = Array.from(cells).filter(cells => !cells.innerHTML.length)
+
+    if (emptyCells.length === 0)
+        document.querySelector("#score").innerHTML = "Empate";
+        localStorage.setItem("Empates", (parseInt(localStorage.getItem("Empates")) || 0 ) +1);
+
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].style.pointerEvents = "none";
+        }
+    }
+
 function userMove() {
     let emptyCells = Array.from(cells).filter(cell => !cell.innerHTML.length);
 
@@ -32,8 +47,13 @@ function userMove() {
         checkListCell(2,5,8);
         checkListCell(2,4,6);
         checkListCell(0,4,8);
+
+
+        cheakTie(); //
+        }
+
     }
-}
+
 
 function checkListCell(c1, c2, c3) {
     if (cells[c1].innerHTML && 
@@ -53,19 +73,27 @@ function showWinner(jugador) {
 
     localStorage.setItem("Ganador", jugador);
     actualizarPuntaje(jugador);
-}
+    }
+
 
 
 function actualizarPuntaje(guardarGanador) {
     let puntajeX = parseInt(localStorage.getItem("puntajeX")) || 0;
     let puntajeY = parseInt(localStorage.getItem("puntajeY")) || 0;
+    let tie = parseInt(localStorage.getItem("Empate")) && 0;
+
+    console.log(tie, cheakTie, emptyCells);
+    
     
 
     if (guardarGanador === "X") {
         localStorage.setItem("puntajeX", ++puntajeX);
     } else if (guardarGanador === "Y") {
         localStorage.setItem("puntajeY", ++puntajeY);
+    } else if (guardarGanador === "tie") {
+        localStorage.setItem("Empate", ++tie); //
     }
+
 }
 
 button.addEventListener("click", () => {
